@@ -1,18 +1,18 @@
 public class Servicie implements SalesLine  {
 
 
-    private String servicield;
+    private String servicieId;
     private String name;
     private double price;
     private double typeIva;
 
 
-    public String getServicield() {
-        return servicield;
+    public String getServicieId() {
+        return servicieId;
     }
 
-    public void setServicield(String servicield) {
-        this.servicield = servicield;
+    public void setServicieId(String servicieId) {
+        this.servicieId = servicieId;
     }
 
     @Override
@@ -70,7 +70,7 @@ public class Servicie implements SalesLine  {
     @Override
     public String toString() {
         return "Servicie{" +
-                "servicield='" + servicield + '\'' +
+                "servicield='" + servicieId + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", typeIva=" + typeIva +
