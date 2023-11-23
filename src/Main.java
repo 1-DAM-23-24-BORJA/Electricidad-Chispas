@@ -3,17 +3,20 @@ import java.util.*;
 
 public class Main {
 
-    public static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
+
     public static int clientCode = 0;
     public static int productId = 0;
     public static int invoiceId =0;
-    public static List<Client> clientList = new ArrayList<>();
-    public static List<Product>  productList = new ArrayList<>();
-    public static List<Servicie> servicieList = new ArrayList<>();
-    public static List<Society>  societyList = new ArrayList<>();
-    public static List<Invoice>  invoiceList = new ArrayList<>();
+
+
 
     public static void main(String[] args) {
+        Client clientNew = null;
+        Society newSociety = null;
+        Servicie newServicie = null;
+        Product newProduct = null;
+        Invoice newInvoice = null;
 
 
         Scanner scanner = new Scanner(System.in);
@@ -44,10 +47,14 @@ public class Main {
                         scanner.nextLine();
                         switch (opcion){
                             case 1:
-
+                                clientNew = leerClient();
                                 break;
                             case 2:
-                                clientList.add(leerClient());
+                                if (clientNew != null) {
+                                    System.out.println(clientNew.toString());
+                                } else {
+                                    System.out.println("Aún no se ha añadido ningún Autonomo.");
+                                }
                                 break;
                             case 0:
                                 System.out.println("Saliendo del programa. ¡Hasta luego!");
@@ -73,11 +80,14 @@ public class Main {
                         opcion = scanner.nextInt();
                         switch (opcion){
                             case 1:
-                                Society newSociety = leerSociety();
+                                 newSociety = leerSociety();
                                 break;
                             case 2:
-                                productList.add(leerProduct());
-                                break;
+                                if (newSociety != null) {
+                                    System.out.println(newSociety.toString());
+                                } else {
+                                    System.out.println("Aún no se ha añadido ninguna Sociedad.");
+                                }
                             case 0:
                                 System.out.println("Saliendo del programa. ¡Hasta luego!");
                                 break;
@@ -103,10 +113,14 @@ public class Main {
                         opcion = scanner.nextInt();
                         switch (opcion){
                             case 1:
-                                Servicie newServicie = leerServicie();
+                                 newServicie = leerServicie();
                                 break;
                             case 2:
-                                servicieList.add(leerServicie());
+                                if (newServicie != null) {
+                                    System.out.println(newServicie.toString());
+                                } else {
+                                    System.out.println("Aún no se ha añadido ningún Servicio.");
+                                }
                                 break;
                             case 0:
                                 System.out.println("Saliendo del programa. ¡Hasta luego!");
@@ -132,10 +146,14 @@ public class Main {
                         opcion = scanner.nextInt();
                         switch (opcion){
                             case 1:
-                                Product newProduct = leerProduct();
+                                 newProduct = leerProduct();
                                 break;
                             case 2:
-                                productList.add(leerProduct());
+                                if (newProduct != null) {
+                                    System.out.println(newProduct.toString());
+                                } else {
+                                    System.out.println("Aún no se ha añadido ningún Producto.");
+                                }
                                 break;
                             case 0:
                                 System.out.println("Saliendo del programa. ¡Hasta luego!");
@@ -163,10 +181,16 @@ public class Main {
                         opcion = scanner.nextInt();
                         switch (opcion){
                             case 1:
-
+                                newInvoice = leerInvoice();
                                 break;
                             case 2:
-                                invoiceList.add(leerInvoice());
+                                if (newInvoice != null) {
+                                    System.out.println(newInvoice.toString());
+                                } else {
+                                    System.out.println("Aún no se ha añadido ningún factura.");
+                                }
+
+
                                 break;
                             case 0:
                                 System.out.println("Saliendo del programa. ¡Hasta luego!");
@@ -241,10 +265,10 @@ public class Main {
 
         Invoice invoiceNew = new Invoice();
         invoiceNew.setInvoiceId(String.valueOf(++invoiceId));
-        System.out.println("Base del iva: ");
-        invoiceNew.setBase(scanner.nextDouble());
         System.out.println("Fecha: ");
         invoiceNew.setDate(scanner.nextLine());
+        System.out.println("Base del iva: ");
+        invoiceNew.setBase(scanner.nextDouble());
         System.out.println("Total: ");
         invoiceNew.setTotal(scanner.nextDouble());
         return invoiceNew;

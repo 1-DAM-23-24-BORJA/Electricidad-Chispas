@@ -113,4 +113,21 @@ public class Client  implements Customer {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "clientCode='" + clientCode + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", dni='" + dni + '\'' +
+                ", postalAddress='" + postalAddress + '\'' +
+                ", town='" + town + '\'' +
+                ", provincie='" + provincie + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }
